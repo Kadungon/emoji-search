@@ -1,0 +1,13 @@
+name: "NPM"
+description: "used to install and build npm dependency"
+author: "vishnu"
+
+nputs:
+  CLI_ARG:
+    description: "cli arguments"
+    required: false
+    default: "-verbose"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
