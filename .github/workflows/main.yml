@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: npm install and build
-        uses: ./actions
+        uses: ./action-a
         with:
           MY_ARG:  --verbose
       - uses: actions/upload-artifact@v2
