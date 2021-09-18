@@ -2,7 +2,7 @@ name: "NPM"
 description: "used to install and build npm dependency"
 author: "vishnu"
 
-nputs:
+inputs:
   CLI_ARG:
     description: "cli arguments"
     required: false
