@@ -1,5 +1,5 @@
-#!/bin/sh -l
+#!/bin/sh 
 
-sh -c "npm install $INPUT_CLI_ARG"
-sh -c "npm run build $INPUT_CLI_ARG"
 ls
+
+echo $INPUT_CLI_ARG
