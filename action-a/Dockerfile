@@ -1,11 +1,6 @@
 FROM node:alpine
 
-WORkDIR /app
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
-ENV arg = $INPUT_CLI_ARG
-
-COPY .  .
-
-RUN npm install $INPUT_NPM_ARG
-
-CMD ["npm","run","build","${arg}"]
