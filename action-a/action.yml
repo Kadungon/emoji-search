@@ -6,7 +6,7 @@ inputs:
   CLI_ARG:
     description: "cli arguments"
     required: false
-    default: "-verbose"
+    default: "verbose"
 
 runs:
   using: "docker"
