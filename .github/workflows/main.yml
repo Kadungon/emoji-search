@@ -9,6 +9,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  pull_request_review:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,15 +27,22 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: npm install
-        run: npm install
-        
-      - name: npm build
-        run: npm run build
-         
-
+      - name: npm install and build
+        uses: ./action-a
+        with:
+          CLI_ARG:  --verbose
       - uses: actions/upload-artifact@v2
         with:
           name: drop
           path: ./build
            
+  labelWhenApproved:
+    name: Label when approved
+    runs-on: ubuntu-latest
+    steps:
+    - name: Label when approved
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: "1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "approved"
